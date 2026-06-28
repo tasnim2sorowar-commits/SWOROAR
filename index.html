@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Friend Wall</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <button id="edit-toggle" class="edit-btn">✏️ Edit</button>
+
+  <header class="board-header">
+    <div class="pin"></div>
+    <div class="card intro-card">
+      <div class="photo-slot" id="me-photo">YN</div>
+      <h1>Hey, I'm <span id="my-name">Your Name</span> 👋</h1>
+      <p class="bio" id="my-bio">
+        Student, collector of inside jokes, and keeper of this corkboard.
+        Here's a little wall I pinned up for the people who make my days better.
+      </p>
+      <div class="tags">
+        <span class="tag">🎓 University Name</span>
+        <span class="tag">📍 City, Country</span>
+        <span class="tag">✉️ you@email.com</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="friends">
+      <h2 class="section-title">My Friend Wall</h2>
+      <p class="section-sub">Tap a photo to read the note on the back.</p>
+      <div id="friend-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 🩹 tape and ❤️ by <span id="footer-name">Your Name</span> — <span id="year"></span></p>
+  </footer>
+
+  <!-- Banner shown only while logged into edit mode -->
+  <div id="edit-banner" class="edit-banner hidden">
+    🔓 Edit mode is on — click "change photo" on any friend's card.
+    <button id="exit-edit">Done editing</button>
+    <button id="reset-photos">Reset all photos</button>
+  </div>
+
+  <!-- Login popup for Edit mode -->
+  <div id="login-modal" class="lightbox hidden">
+    <div class="lightbox-card login-card">
+      <button id="login-close" class="close-btn" aria-label="Close">×</button>
+      <h3>🔒 Edit login</h3>
+      <p class="login-hint">Only you should know these.</p>
+      <input id="login-username" type="text" placeholder="Username" autocomplete="off" />
+      <input id="login-password" type="password" placeholder="Password" autocomplete="off" />
+      <p id="login-error" class="login-error hidden">Wrong username or password.</p>
+      <button id="login-submit" class="login-submit">Log in</button>
+    </div>
+  </div>
+
+  <!-- Hidden file input reused for every photo upload -->
+  <input type="file" id="photo-input" accept="image/*" class="hidden" />
+
+  <!-- Lightbox / "flip the polaroid" modal -->
+  <div id="lightbox" class="lightbox hidden">
+    <div class="lightbox-card">
+      <button id="lightbox-close" class="close-btn" aria-label="Close">×</button>
+      <div class="lightbox-photo" id="lightbox-photo"></div>
+      <h3 id="lightbox-name"></h3>
+      <p id="lightbox-note"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
